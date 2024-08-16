@@ -1,7 +1,9 @@
-import GNB from "@/components/GNB/GNB";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import type { Metadata } from "next"
+import localFont from "next/font/local"
+
+import GNB from "@/components/GNB/GNB"
+
+import "./globals.css"
 
 const pretendard = localFont({
   src: [
@@ -41,19 +43,19 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   title: "Survive in EPL",
   description: "EPL에서 살아남기",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="ko" className={pretendard.className}>
       <body className="bg-slate-100 pt-[60px]">
+        <GNB />
         {children}
       </body>
     </html>
-  );
+  )
 }
-
