@@ -62,7 +62,7 @@ const Matches = () => {
             return (
               <div
                 key={match.id}
-                className={`flex w-[calc(100%/2-16px)] items-center justify-between gap-3 ${(idx + 1) % 5 !== 0 && "border-b-[1px] border-b-slate-200"} py-2 max-md:w-full max-md:flex-wrap`}
+                className={`flex w-[calc(100%/2-16px)] items-center justify-between gap-3 ${(idx + 1) % 5 !== 0 && "border-b-[1px] border-b-slate-200"} py-2 max-md:w-full max-md:flex-col max-md:items-start`}
               >
                 <span
                   className={`font-bold text-epl_purple ${dayjs(match.utcDate).isSame(dayjs(), "days") && "text-red-500"}`}
