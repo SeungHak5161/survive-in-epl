@@ -89,7 +89,10 @@ const Matches = () => {
                     })}
                   </div>
                 </div>
-                <div className="flex w-full justify-center gap-2">
+                <div className="flex w-full items-center justify-center gap-2">
+                  <div className="flex h-6 w-9 items-center justify-center rounded-md bg-epl_purple font-semibold text-white">
+                    {match.matchday}R
+                  </div>
                   <div className="flex w-[calc((100%-80px)/2)] flex-grow-0 items-center justify-end gap-2 whitespace-nowrap">
                     <span className="inline-block overflow-hidden text-ellipsis">
                       {teamKorName[match.homeTeam.tla] || match.homeTeam.shortName}
