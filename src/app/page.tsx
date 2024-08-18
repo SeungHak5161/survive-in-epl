@@ -11,7 +11,7 @@ export default function Home() {
           <Matches />
         </div>
         <div className="">예측 순위</div>
-        <div className="row-span-2 rounded-xl bg-white p-3 pb-1">
+        <div className="row-span-2">
           <Standings />
         </div>
         <div className="">선수 스탯</div>

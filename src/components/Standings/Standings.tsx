@@ -35,7 +35,7 @@ const Standings = () => {
     init()
   }, [])
   return (
-    <>
+    <div className="rounded-xl bg-white p-3 pb-1">
       {!standings ? (
         <div className="py-80">
           <Spinner />
@@ -75,7 +75,7 @@ const Standings = () => {
           })}
         </>
       )}
-    </>
+    </div>
   )
 }
 export default Standings
