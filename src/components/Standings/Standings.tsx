@@ -20,6 +20,8 @@ const Standings = () => {
         return "border-b-[1px] border-b-green-500"
       case 17:
         return "border-b-[1px] border-b-red-500"
+      case 20:
+        return ""
       default:
         return "border-b-[1px] border-b-slate-200"
     }
