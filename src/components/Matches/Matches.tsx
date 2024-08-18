@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 
 import { getAllMatches } from "@/apis/getLeagueData"
+import { teamKorName } from "@/constants/enum"
 import dayjs from "dayjs"
 
 import Spinner from "../Spinner/Spinner"
@@ -70,7 +71,9 @@ const Matches = () => {
                 </span>
                 <div className="flex w-full justify-center gap-2">
                   <div className="flex w-[calc((100%-80px)/2)] flex-grow-0 items-center justify-end gap-2 whitespace-nowrap">
-                    <span className="inline-block">{match.homeTeam.shortName}</span>
+                    <span className="inline-block overflow-hidden text-ellipsis">
+                      {teamKorName[match.homeTeam.tla] || match.homeTeam.shortName}
+                    </span>
                     <Image
                       className="inline-block"
                       src={match.homeTeam.crest}
@@ -99,7 +102,9 @@ const Matches = () => {
                       width={30}
                       height={30}
                     />
-                    <span className="inline-block">{match.awayTeam.shortName}</span>
+                    <span className="inline-block overflow-hidden text-ellipsis">
+                      {teamKorName[match.awayTeam.tla] || match.awayTeam.shortName}
+                    </span>
                   </div>
                 </div>
               </div>

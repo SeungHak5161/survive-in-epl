@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 
 import { getStandings } from "@/apis/getLeagueData"
 import Spinner from "@/components/Spinner/Spinner"
+import { teamKorName } from "@/constants/enum"
 
 const Standings = () => {
   const [standings, setStandings] = useState<IStandings[]>()
@@ -42,34 +43,34 @@ const Standings = () => {
         </div>
       ) : (
         <>
-          <div className="mb-2 grid grid-cols-9 rounded-xl bg-blue-50 py-2 [&_div]:font-semibold">
-            <div className="flex justify-center">순위</div>
-            <div className="col-span-3 flex justify-center">팀</div>
-            <div className="flex justify-center">경기</div>
-            <div className="flex justify-center">승</div>
-            <div className="flex justify-center">무</div>
-            <div className="flex justify-center">패</div>
-            <div className="flex justify-center">승점</div>
+          <div className="mb-2 grid grid-cols-9 rounded-xl bg-blue-50 py-2 [&_span]:flex [&_span]:items-center [&_span]:justify-center [&_span]:font-semibold">
+            <span>순위</span>
+            <span className="col-span-3">팀</span>
+            <span>경기</span>
+            <span>승</span>
+            <span>무</span>
+            <span>패</span>
+            <span>승점</span>
           </div>
           {standings.map((team, idx) => {
             return (
               <div
-                className={`grid grid-cols-9 py-2 ${getPositionBorder(idx + 1)}`}
+                className={`grid grid-cols-9 py-2 [&_span]:flex [&_span]:items-center [&_span]:justify-center ${getPositionBorder(idx + 1)}`}
                 key={team.team.name}
               >
-                <div className="flex justify-center">{team.position}</div>
+                <span>{team.position}</span>
                 <div className="col-span-3 flex gap-4">
                   <Image src={team.team.crest} alt={team.team.name} width={30} height={30} />
                   <div className="overflow-hidden text-ellipsis whitespace-nowrap">
-                    {team.team.shortName}
+                    {teamKorName[team.team.tla] || team.team.shortName}
                   </div>
                 </div>
 
-                <div className="flex justify-center">{team.playedGames}</div>
-                <div className="flex justify-center">{team.won}</div>
-                <div className="flex justify-center">{team.draw}</div>
-                <div className="flex justify-center">{team.lost}</div>
-                <div className="flex justify-center">{team.points}</div>
+                <span>{team.playedGames}</span>
+                <span>{team.won}</span>
+                <span>{team.draw}</span>
+                <span>{team.lost}</span>
+                <span className="font-semibold">{team.points}</span>
               </div>
             )
           })}
