@@ -20,8 +20,8 @@ export const getStandings = async () => {
   }
 }
 
-export const getFurtherMatches = async () => {
-  const url = "https://api.football-data.org/v4/competitions/PL/matches?status=SCHEDULED"
+export const getMatchesByStatus = async (status: string) => {
+  const url = `https://api.football-data.org/v4/competitions/PL/matches?status=${status}`
   const options = {
     method: "GET",
     headers: {
@@ -39,8 +39,8 @@ export const getFurtherMatches = async () => {
   }
 }
 
-export const getOngoingMatches = async () => {
-  const url = "https://api.football-data.org/v4/competitions/PL/matches?status=IN_PLAY"
+export const getAllMatches = async () => {
+  const url = "https://api.football-data.org/v4/competitions/PL/matches"
   const options = {
     method: "GET",
     headers: {
