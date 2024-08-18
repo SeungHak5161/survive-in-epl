@@ -34,3 +34,26 @@ export const teamKorName: any = {
   WOL: "울버햄튼",
   EVE: "에버튼",
 }
+
+export const teamStadium: any = {
+  BHA: "American Express Community Stadium",
+  ARS: "Emirates Stadium",
+  LIV: "Anfield",
+  AVL: "Villa Park",
+  MUN: "Old Trafford",
+  NEW: "St. James' Park",
+  BOU: "Vitality Stadium",
+  BRE: "Gtech Community Stadium",
+  CRY: "Selhurst Park",
+  NOT: "Carrow Road",
+  CHE: "Stamford Bridge",
+  LEI: "King Power Stadium",
+  MCI: "Etihad Stadium",
+  TOT: "Tottenham Hotspur Stadium",
+  WHU: "London Stadium",
+  FUL: "Craven Cottage",
+  SOU: "St. Mary's Stadium",
+  IPS: "Portman Road",
+  WOL: "Molineux Stadium",
+  EVE: "Goodison Park",
+}
