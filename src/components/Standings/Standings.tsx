@@ -30,19 +30,16 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
         </div>
       ) : (
         <>
-          <div className="mb-2 grid grid-cols-9 rounded-xl bg-blue-50 py-2 [&_span]:flex [&_span]:items-center [&_span]:justify-center [&_span]:font-semibold">
+          <div className="mb-2 grid grid-cols-6 rounded-xl bg-blue-50 py-2 [&_span]:flex [&_span]:items-center [&_span]:justify-center [&_span]:font-semibold">
             <span>순위</span>
             <span className="col-span-3">팀</span>
             <span>경기</span>
-            <span>승</span>
-            <span>무</span>
-            <span>패</span>
             <span>승점</span>
           </div>
           {standings.map((team, idx) => {
             return (
               <div
-                className={`grid grid-cols-9 py-2 [&_span]:flex [&_span]:items-center [&_span]:justify-center ${getPositionBorder(idx + 1)}`}
+                className={`grid grid-cols-6 py-2 [&_span]:flex [&_span]:items-center [&_span]:justify-center ${getPositionBorder(idx + 1)}`}
                 key={team.team.name}
               >
                 <span>{team.position}</span>
@@ -54,9 +51,6 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
                 </div>
 
                 <span>{team.playedGames}</span>
-                <span>{team.won}</span>
-                <span>{team.draw}</span>
-                <span>{team.lost}</span>
                 <span className="font-semibold">{team.points}</span>
               </div>
             )
