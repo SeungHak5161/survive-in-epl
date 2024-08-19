@@ -2,15 +2,16 @@
 
 import Image from "next/image"
 
-import { useEffect, useState } from "react"
-
-import { getStandings } from "@/apis/getLeagueData"
 import Spinner from "@/components/Spinner/Spinner"
 import { teamKorName } from "@/constants/enum"
 
-const StandingsFull = () => {
-  const [standings, setStandings] = useState<IStandings[]>()
-
+const StandingsFull = ({
+  standings,
+  isLoading,
+}: {
+  standings: IStandings[]
+  isLoading: boolean
+}) => {
   const getPositionBorder = (position: number) => {
     switch (position) {
       case 1:
@@ -28,16 +29,9 @@ const StandingsFull = () => {
     }
   }
 
-  useEffect(() => {
-    const init = async () => {
-      const standingRes = await getStandings()
-      setStandings(standingRes.standings[0].table)
-    }
-    init()
-  }, [])
   return (
     <div className="rounded-xl bg-white p-3 pb-1">
-      {!standings ? (
+      {isLoading ? (
         <div className="py-96">
           <Spinner />
         </div>

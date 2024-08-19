@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 
 import GNB from "@/components/GNB/GNB"
+import QueryProviders from "@/components/app/provider"
 
 import "./globals.css"
 
@@ -53,8 +54,10 @@ export default function RootLayout({
   return (
     <html lang="ko" className={pretendard.className}>
       <body className="bg-slate-100 pt-[60px]">
-        <GNB />
-        {children}
+        <QueryProviders>
+          <GNB />
+          {children}
+        </QueryProviders>
       </body>
     </html>
   )

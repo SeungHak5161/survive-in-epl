@@ -2,17 +2,12 @@
 
 import Image from "next/image"
 
-import { useEffect, useState } from "react"
-
-import { getAllMatches } from "@/apis/getLeagueData"
 import { teamKorName, teamStadium } from "@/constants/enum"
 import dayjs from "dayjs"
 
 import Spinner from "../Spinner/Spinner"
 
-const Matches = () => {
-  const [matches, setMatches] = useState<IMatch[]>()
-
+const Matches = ({ matches, isLoading }: { matches: IMatch[]; isLoading: boolean }) => {
   const classifyMatchStatus = (status: string) => {
     switch (status) {
       case "SCHEDULED":
@@ -39,25 +34,9 @@ const Matches = () => {
         return "finished"
     }
   }
-  useEffect(() => {
-    const init = async () => {
-      const res = await getAllMatches()
-
-      const found = res.matches.find((match: any) => {
-        return dayjs(match.utcDate).isBefore(dayjs().subtract(2, "day"))
-      })
-      if (found) {
-        const idx = res.matches.indexOf(found)
-        res.matches.splice(0, idx)
-      }
-      setMatches(res.matches)
-      console.log(res.matches)
-    }
-    init()
-  }, [])
   return (
     <div className="flex flex-col rounded-xl bg-white px-5">
-      {!matches ? (
+      {isLoading ? (
         <div className="py-96">
           <Spinner />
         </div>

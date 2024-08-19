@@ -5,7 +5,7 @@ import Image from "next/image"
 import Spinner from "@/components/Spinner/Spinner"
 import { teamKorName } from "@/constants/enum"
 
-const Standings = ({ standings }: { standings: IStandings[] | undefined }) => {
+const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoading: boolean }) => {
   const getPositionBorder = (position: number) => {
     switch (position) {
       case 1:

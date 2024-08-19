@@ -5,7 +5,7 @@ import Image from "next/image"
 import Spinner from "@/components/Spinner/Spinner"
 import { teamKorName } from "@/constants/enum"
 
-const PredictCard = ({ predictData }: { predictData: IPredict | undefined }) => {
+const PredictCard = ({ predictData, isLoading }: { predictData: IPredict; isLoading: boolean }) => {
   const getPositionBorder = (position: number) => {
     switch (position) {
       case 1:
@@ -24,7 +24,7 @@ const PredictCard = ({ predictData }: { predictData: IPredict | undefined }) => 
   }
   return (
     <div className="h-full max-w-[300px] rounded-xl bg-white p-3 pb-1 max-md:w-full">
-      {!predictData ? (
+      {isLoading ? (
         <div className="py-80">
           <Spinner />
         </div>
