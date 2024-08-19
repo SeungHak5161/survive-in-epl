@@ -68,3 +68,14 @@ interface IMatch {
     type: string
   }[]
 }
+
+interface IPredict {
+  name: string
+  predict: {
+    position: number
+    tla: string
+    crest: string
+    diff: string
+  }[]
+  accuracy: number
+}
