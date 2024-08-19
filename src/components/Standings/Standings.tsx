@@ -59,7 +59,7 @@ const Standings = () => {
                 key={team.team.name}
               >
                 <span>{team.position}</span>
-                <div className="col-span-3 flex gap-4">
+                <div className="col-span-3 flex items-center gap-4">
                   <Image src={team.team.crest} alt={team.team.name} width={30} height={30} />
                   <div className="overflow-hidden text-ellipsis whitespace-nowrap">
                     {teamKorName[team.team.tla] || team.team.shortName}

@@ -93,7 +93,7 @@ const Matches = () => {
                   <div className="flex h-6 w-9 items-center justify-center rounded-md bg-epl_purple font-semibold text-white">
                     {match.matchday}R
                   </div>
-                  <div className="flex w-[calc((100%-80px)/2)] flex-grow-0 items-center justify-end gap-2 whitespace-nowrap">
+                  <div className="flex w-[calc((100%-122px)/2)] flex-grow-0 items-center justify-end gap-2 whitespace-nowrap">
                     <span className="inline-block overflow-hidden text-ellipsis">
                       {teamKorName[match.homeTeam.tla] || match.homeTeam.shortName}
                     </span>
@@ -118,7 +118,7 @@ const Matches = () => {
                       </span>
                     )}
                   </div>
-                  <div className="flex w-[calc((100%-64px)/2)] flex-grow-0 items-center gap-2 whitespace-nowrap">
+                  <div className="flex w-[calc((100%-122px)/2)] flex-grow-0 items-center gap-2 whitespace-nowrap">
                     <Image
                       className="inline-block"
                       src={match.awayTeam.crest}
