@@ -24,8 +24,8 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
   }
   return (
     <div className="max-w-[300px] rounded-xl bg-white max-md:w-1/2">
-      {!standings ? (
-        <div className="px-32 py-80">
+      {isLoading ? (
+        <div className="py-80">
           <Spinner />
         </div>
       ) : (
