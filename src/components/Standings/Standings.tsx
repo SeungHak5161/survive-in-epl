@@ -23,7 +23,7 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
     }
   }
 
-  const onClickLeicester = (tla: string) => {
+  const onClickEaster = (tla: string) => {
     const easterEgg = document.createElement("div")
     easterEgg.style.position = "fixed"
     easterEgg.style.top = "0"
