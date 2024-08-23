@@ -66,7 +66,7 @@ const EnrollModal = ({ setModalState }: { setModalState: () => void }) => {
             <CloseSVG className="h-6" />
           </button>
         </div>
-        <div className="flex flex-col gap-3 overflow-y-scroll">
+        <div className="flex flex-col gap-3 overflow-y-hidden">
           <label htmlFor="name" className="font-semibold">
             이름
           </label>
