@@ -22,6 +22,53 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
         return "border-b-[1px] border-b-slate-200"
     }
   }
+
+  const onClickLeicester = (tla: string) => {
+    const easterEgg = document.createElement("div")
+    easterEgg.style.position = "fixed"
+    easterEgg.style.top = "0"
+    easterEgg.style.left = "0"
+    easterEgg.style.width = "100%"
+    easterEgg.style.height = "100%"
+    easterEgg.style.display = "flex"
+    easterEgg.style.justifyContent = "center"
+    easterEgg.style.alignItems = "center"
+
+    const image = document.createElement("img")
+    image.style.width = "50%"
+    switch (tla) {
+      case "LEI":
+        image.src = "/images/vardy.png"
+        break
+      case "CHE":
+        image.src = "/images/james.jpg"
+        break
+      case "MCI":
+        image.src = "/images/halland.jpg"
+        break
+      case "MUN":
+        image.src = "/images/antony.jpg"
+        break
+      case "LIV":
+        image.src = "/images/klopp.jpg"
+        break
+      case "ARS":
+        image.src = "/images/pepe.webp"
+        break
+      case "TOT":
+        image.src = "/images/tot.png"
+        break
+    }
+    if (image.src) {
+      easterEgg.appendChild(image)
+      document.body.appendChild(easterEgg)
+
+      setTimeout(() => {
+        document.body.removeChild(easterEgg)
+      }, 2000)
+    }
+  }
+
   return (
     <div className="rounded-xl bg-white p-3 pb-1">
       {isLoading ? (
@@ -43,7 +90,10 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
                 key={team.team.name}
               >
                 <span>{team.position}</span>
-                <div className="col-span-3 flex items-center gap-4">
+                <div
+                  className="col-span-3 flex items-center gap-4"
+                  onClick={() => onClickLeicester(team.team.tla)}
+                >
                   <Image src={team.team.crest} alt={team.team.name} width={30} height={30} />
                   <div className="overflow-hidden text-ellipsis whitespace-nowrap">
                     {teamKorName[team.team.tla] || team.team.shortName}
