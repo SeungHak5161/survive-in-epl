@@ -27,7 +27,11 @@ const LeedsStandings = ({
     easterEgg.style.alignItems = "center"
 
     const image = document.createElement("img")
-    image.style.width = "70%"
+
+    image.style.width = "50%"
+    if (document.body.clientWidth < 768) {
+      image.style.width = "80%"
+    }
     image.src = "/images/gray.webp"
     easterEgg.appendChild(image)
     document.body.appendChild(easterEgg)
@@ -46,7 +50,7 @@ const LeedsStandings = ({
   return (
     <div className="rounded-xl bg-white p-3">
       {isLoading || !leeds ? (
-        <div className="py-80">
+        <div className="py-8">
           <Spinner />
         </div>
       ) : (

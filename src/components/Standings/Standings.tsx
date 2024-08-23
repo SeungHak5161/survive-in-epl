@@ -35,7 +35,10 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
     easterEgg.style.alignItems = "center"
 
     const image = document.createElement("img")
-    image.style.width = "70%"
+    image.style.width = "50%"
+    if (document.body.clientWidth < 768) {
+      image.style.width = "80%"
+    }
     switch (tla) {
       case "LEI":
         image.src = "/images/vardy.png"
