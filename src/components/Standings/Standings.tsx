@@ -35,7 +35,7 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
     easterEgg.style.alignItems = "center"
 
     const image = document.createElement("img")
-    image.style.width = "50%"
+    image.style.width = "70%"
     switch (tla) {
       case "LEI":
         image.src = "/images/vardy.png"
@@ -92,7 +92,7 @@ const Standings = ({ standings, isLoading }: { standings: IStandings[]; isLoadin
                 <span>{team.position}</span>
                 <div
                   className="col-span-3 flex items-center gap-4"
-                  onClick={() => onClickLeicester(team.team.tla)}
+                  onClick={() => onClickEaster(team.team.tla)}
                 >
                   <Image src={team.team.crest} alt={team.team.name} width={30} height={30} />
                   <div className="overflow-hidden text-ellipsis whitespace-nowrap">

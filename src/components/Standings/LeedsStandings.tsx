@@ -27,8 +27,8 @@ const LeedsStandings = ({
     easterEgg.style.alignItems = "center"
 
     const image = document.createElement("img")
-    image.style.width = "50%"
-    image.src = "/images/vardy.png"
+    image.style.width = "70%"
+    image.src = "/images/gray.webp"
     easterEgg.appendChild(image)
     document.body.appendChild(easterEgg)
 
