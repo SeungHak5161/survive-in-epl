@@ -2,12 +2,15 @@
 
 import Image from "next/image"
 
+import { useState } from "react"
+
 import { teamKorName, teamStadium } from "@/constants/enum"
 import dayjs from "dayjs"
 
 import Spinner from "../Spinner/Spinner"
 
 const Matches = ({ matches, isLoading }: { matches: IMatch[]; isLoading: boolean }) => {
+  const [viewOld, setViewOld] = useState(false)
   const classifyMatchStatus = (status: string) => {
     switch (status) {
       case "SCHEDULED":
@@ -34,6 +37,9 @@ const Matches = ({ matches, isLoading }: { matches: IMatch[]; isLoading: boolean
         return "finished"
     }
   }
+
+  const twoDaysPassed = dayjs().subtract(2, "day")
+
   return (
     <div className="flex flex-col rounded-xl bg-white px-5">
       {isLoading ? (
@@ -42,11 +48,26 @@ const Matches = ({ matches, isLoading }: { matches: IMatch[]; isLoading: boolean
         </div>
       ) : (
         <div className="flex flex-col content-between py-3">
+          {viewOld ? (
+            <button
+              className={`w-full rounded-lg bg-gray-400 py-3 text-lg font-bold text-white`}
+              onClick={() => setViewOld(!viewOld)}
+            >
+              지난 경기 숨기기
+            </button>
+          ) : (
+            <button
+              className={`w-full rounded-lg bg-epl_purple py-3 text-lg font-bold text-white`}
+              onClick={() => setViewOld(!viewOld)}
+            >
+              지난 경기 보기
+            </button>
+          )}
           {matches.map((match: any, idx) => {
             return (
               <div
                 key={match.id}
-                className={`flex flex-col items-start gap-3 ${(idx + 1) % 5 !== 0 && "border-b-[1px] border-b-slate-200"} py-2`}
+                className={`flex flex-col items-start gap-3 py-2 ${(idx + 1) % 5 !== 0 && "border-b-[1px] border-b-slate-200"} ${!viewOld && dayjs(match.utcDate).isBefore(twoDaysPassed) && "hidden"}`}
               >
                 <div className="flex w-full justify-between">
                   <span
