@@ -55,14 +55,20 @@ const Matches = ({ matches, isLoading }: { matches: IMatch[]; isLoading: boolean
                     {dayjs(match.utcDate).format("YY/MM/DD")}
                   </span>
 
-                  <div className="flex">
-                    <span className="whitespace-nowrap text-sm font-light">
+                  <div className="flex max-w-[calc(100%-80px)] justify-center font-light max-lg:text-sm max-md:text-xs">
+                    <span
+                      className={`${match.referees.length !== 0 && "max-w-[45%]"} overflow-hidden text-ellipsis whitespace-nowrap text-sm font-light`}
+                    >
                       {teamStadium[match.homeTeam.tla]}
                     </span>
                     {match.referees.map((referee: any) => {
                       return (
-                        <span key={referee.id} className="whitespace-nowrap text-sm font-light">
-                          &nbsp;/&nbsp;{referee.name}
+                        <span
+                          key={referee.id}
+                          className="max-w-[55%] overflow-hidden text-ellipsis whitespace-nowrap text-sm font-light"
+                        >
+                          &nbsp;/&nbsp;
+                          {referee.name}
                         </span>
                       )
                     })}
