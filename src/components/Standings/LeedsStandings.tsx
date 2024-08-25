@@ -55,25 +55,38 @@ const LeedsStandings = ({
         </div>
       ) : (
         <div
-          className="flex items-center justify-center gap-3 max-md:gap-1"
+          className="flex items-center justify-center gap-3 overflow-hidden max-md:gap-1 max-sm:gap-[1px]"
           onClick={onClickEaster}
         >
           <Image src={leeds.team.crest} alt={leeds.team.name} width={50} height={50} />
-          <div className="flex flex-col items-end justify-center whitespace-nowrap text-lg max-md:text-base">
+          <div className="flex flex-col items-end justify-center whitespace-nowrap text-lg max-lg:text-sm">
             <div className="flex items-center">
-              현재&nbsp;잉글랜드&nbsp;
+              잉글랜드&nbsp;
               <span className="font-semibold">2부리그</span>&nbsp;소속의&nbsp;
               <span className="font-bold">리즈 유나이티드</span>는&nbsp;
             </div>
             <div className="flex items-center">
+              현재&nbsp;
               <span className="font-semibold">{leeds.playedGames}전</span>&nbsp;
               <span className="font-semibold text-blue-700">{leeds.won}</span>승&nbsp;
               <span className="font-semibold text-yellow-500">{leeds.draw}</span>무&nbsp;
-              <span className="font-semibold text-red-600">{leeds.lost}</span>패로&nbsp; 승점&nbsp;
+              <span className="font-semibold text-red-600">{leeds.lost}</span>패로&nbsp;승점&nbsp;
               <span className="font-semibold">{leeds.points}점</span>이며&nbsp;
+            </div>
+            <div className="flex items-center">
+              <span className="font-semibold">
+                {leeds.position <= 2
+                  ? "다이렉트 승격이"
+                  : leeds.position <= 6
+                    ? "승격 플레이오프 진출이"
+                    : leeds.position <= 21
+                      ? "2부리그 잔류가"
+                      : "3부리그 강등이"}
+              </span>
+              &nbsp;가능한&nbsp;
               <div className="flex items-center justify-center">
                 <div
-                  className={`flex aspect-square w-8 items-center justify-center rounded-md bg-epl_purple font-bold text-white ${leeds.position <= 2 && "bg-gradient-to-tr from-blue-600 to-green-500"} ${leeds.position >= 3 && leeds.position <= 6 && "bg-gradient-to-tr from-blue-800 to-green-700"}`}
+                  className={`max-sm:font-sm flex aspect-square w-7 items-center justify-center rounded-md bg-epl_purple font-bold text-white ${leeds.position >= 7 && leeds.position <= 21 && "bg-gradient-to-tr from-red-800 to-yellow-500"} ${leeds.position >= 3 && leeds.position <= 6 && "bg-gradient-to-tr from-blue-800 to-green-700"} ${leeds.position <= 2 && "bg-gradient-to-tr from-blue-600 to-green-500"} `}
                 >
                   {leeds.position}
                 </div>
