@@ -8,6 +8,7 @@ import Spinner from "@/components/Spinner/Spinner"
 import StandingsSimple from "@/components/Standings/StandingsSimple"
 import usePredict from "@/hooks/usePredict"
 import useStandings from "@/hooks/useStandings"
+import dayjs from "dayjs"
 import "swiper/css"
 import "swiper/css/navigation"
 import { Navigation } from "swiper/modules"
@@ -18,15 +19,21 @@ const predict = () => {
   const { data: standings, isLoading: isStandingsLoading } = useStandings()
   const { data: predictData, isLoading: isPredictDataLoading } = usePredict()
 
+  const isPeriod = dayjs().isAfter(dayjs("2021-09-01"))
+
   return (
     <div className="mx-auto flex max-w-[1200px] flex-col gap-2 p-3">
       <div className="flex justify-center">
         <button
           onClick={() => setModalState(!modalState)}
-          className={`w-40 rounded-lg py-3 text-lg font-bold text-white max-md:w-full ${isStandingsLoading || isPredictDataLoading ? "cursor-not-allowed bg-gray-400" : "bg-red-500"}`}
-          disabled={isStandingsLoading || isPredictDataLoading}
+          className={`w-full rounded-lg py-3 text-lg font-bold text-white ${!isPeriod || isStandingsLoading || isPredictDataLoading ? "cursor-not-allowed bg-gray-400" : "bg-red-500"}`}
+          disabled={isPeriod || isStandingsLoading || isPredictDataLoading}
         >
-          {isStandingsLoading || isPredictDataLoading ? "로딩중" : "등록하기"}
+          {isPeriod
+            ? isStandingsLoading || isPredictDataLoading
+              ? "로딩중"
+              : "등록하기"
+            : "등록 기간이 아닙니다"}
         </button>
       </div>
       <div className="flex gap-2">

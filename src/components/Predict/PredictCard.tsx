@@ -42,11 +42,13 @@ const PredictCard = ({ predictData, isLoading }: { predictData: IPredict; isLoad
           {predictData.predict.map((team, idx) => {
             return (
               <div
-                className={`grid grid-cols-5 py-2 max-md:grid-cols-4 [&_span]:flex [&_span]:items-center [&_span]:justify-center ${getPositionBorder(idx + 1)}`}
+                className={`flex py-2 [&_span]:flex [&_span]:items-center [&_span]:justify-center ${getPositionBorder(idx + 1)}`}
                 key={team.tla}
               >
-                <span className="text-lg font-bold">{team.position}&nbsp;&nbsp;・</span>
-                <div className="col-span-3 flex items-center gap-4 max-md:col-span-2 max-md:justify-center">
+                <div className="w-[55px] pl-3 text-lg font-bold max-md:w-[45px] max-md:pl-1">
+                  {team.position}&nbsp;&nbsp;・
+                </div>
+                <div className="flex w-[calc(100%-55px)] items-center gap-4 max-md:w-[calc(100%-45px)]">
                   <Image src={team.crest} alt={team.tla} width={30} height={30} />
                   <div className="overflow-hidden text-ellipsis whitespace-nowrap max-md:hidden">
                     {teamKorName[team.tla] || team.tla}
