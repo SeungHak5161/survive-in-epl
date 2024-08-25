@@ -22,7 +22,7 @@ export const teamKorName: any = {
   BOU: "본머스",
   BRE: "브렌트포드",
   CRY: "크리스탈 팰리스",
-  NOT: "노리치",
+  NOT: "노팅엄",
   CHE: "첼시",
   LEI: "레스터 시티",
   MCI: "맨체스터 시티",
