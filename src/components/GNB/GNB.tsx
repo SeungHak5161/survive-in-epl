@@ -15,7 +15,7 @@ const GNB = () => {
           <EplLogo className="h-[45px]" />
         </button>
       </Link>
-      <div className="flex gap-8">
+      <div className="flex gap-8 max-md:gap-6 max-sm:gap-4">
         <Link href="/standings">
           <button className="text-xl font-bold text-white">리그 순위</button>
         </Link>
