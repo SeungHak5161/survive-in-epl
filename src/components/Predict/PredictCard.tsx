@@ -30,8 +30,8 @@ const PredictCard = ({ predictData, isLoading }: { predictData: IPredict; isLoad
         </div>
       ) : (
         <>
-          <div className="flex flex-wrap justify-between gap-2">
-            <div className="flex flex-grow items-center justify-center whitespace-nowrap rounded-md bg-epl_purple px-2 font-bold text-white">
+          <div className="flex flex-wrap flex-nowrap justify-between gap-2">
+            <div className="flex flex-grow items-center justify-center whitespace-nowrap rounded-md bg-epl_purple px-1 font-bold text-white">
               {predictData.name}
             </div>
             <div className="flex flex-col items-start">
